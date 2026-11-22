@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>莎翁字母表</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9dcb8;--paper:#f8efd9;--ink:#2a1d14;--sub:#6a5440;--wine:#7a1e2c;--gold:#a8832f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17100c;--paper:#26190f;--ink:#f0e2c0;--sub:#b9a581;--wine:#e39aa5;--gold:#d4a84a}}
+:root[data-theme="dark"]{--bg:#17100c;--paper:#26190f;--ink:#f0e2c0;--sub:#b9a581;--wine:#e39aa5;--gold:#d4a84a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--cw:clamp(24px,7vw,110px);--cream:#f6ead0}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#6a1c2a 0%,#35101a 40%,#150609 100%) fixed;color:var(--cream);font-family:"Cormorant Garamond","Noto Serif TC","Songti TC",serif;min-height:100vh}
+main{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 max(16px,calc(var(--cw) + 8px)) 48px}
+header{position:relative;text-align:center;background:linear-gradient(#8a1a2c,#5a0f1c);border:3px solid #e0b95a;border-top:0;border-radius:0 0 18px 18px;padding:20px 12px 24px;margin-bottom:36px;box-shadow:0 8px 24px rgba(0,0,0,.55)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-17px;height:14px;background:radial-gradient(circle at 14px 0,#5a0f1c 13px,transparent 14px) 0 0/28px 14px repeat-x;filter:drop-shadow(0 2px 0 #e0b95a)}
+h1{font-family:"Cinzel Decorative","Cinzel","Noto Serif TC",serif;font-weight:700;font-size:clamp(1.7rem,5vw,2.9rem);margin:0;letter-spacing:.08em;background:linear-gradient(#fff6cc,#e0b95a 55%,#9a7220);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #2a0a0c)}
+h1::before,h1::after{content:"❦";font-size:.6em;margin:0 .6em;vertical-align:middle}
+.sub{font-style:italic;font-size:1.3rem;margin:2px 0 0;color:var(--cream)}
+p.hint{margin:6px 0 0;color:#e8cfa0;font-family:"Noto Serif TC",serif;font-size:.95rem}
+.layout{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;padding:20px;border:4px double #e0b95a;border-radius:6px;background:radial-gradient(ellipse at 50% 0%,rgba(255,226,150,.28),transparent 65%),repeating-linear-gradient(90deg,#3a2314 0 62px,#2a190d 62px 64px);box-shadow:0 14px 40px rgba(0,0,0,.6),inset 0 0 60px rgba(0,0,0,.45)}
+.layout.open{grid-template-columns:1fr 340px}
+#ov{position:sticky;top:12px;z-index:5}
+#ov[hidden]{display:none}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:12px}
+button.tile{background:var(--paper);color:var(--wine);border:2px solid var(--gold);border-radius:4px;box-shadow:0 5px 10px rgba(0,0,0,.55),inset 0 0 0 4px var(--paper),inset 0 0 0 5px var(--gold);padding:16px 4px;font:inherit;cursor:pointer;transition:transform .12s}
+button.tile:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,.6),0 0 14px rgba(255,217,138,.55),inset 0 0 0 4px var(--paper),inset 0 0 0 5px var(--gold)}
+button.tile:active{transform:scale(.94)}
+button.tile:focus-visible,.bar button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+button.tile.sel{background:var(--wine);color:var(--paper);box-shadow:inset 0 0 0 4px var(--wine),inset 0 0 0 5px var(--paper)}
+.big{font-family:"Cinzel",serif;font-weight:700;font-size:2.5rem;line-height:1}
+.lc{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.15em}
+.card{background:var(--paper);color:var(--ink);border:5px double #e0b95a;padding:20px 16px 16px;text-align:center;max-height:calc(100vh - 24px);overflow-y:auto;box-shadow:0 12px 34px rgba(0,0,0,.65),0 0 38px rgba(255,200,100,.25)}
+#cL{font-family:"Cinzel",serif;font-weight:700;font-size:4.2rem;line-height:1;color:var(--wine)}
+#cE{display:block;width:100%;max-width:280px;height:auto;margin:8px auto;border:3px solid var(--gold)}
+#cW{font-weight:700;font-size:2.6rem;line-height:1.1}
+#cS{font-family:"Noto Serif TC",serif;font-size:.95rem;color:var(--sub);margin:8px 0 12px;line-height:1.6}
+.quote{border-top:1px solid var(--gold);margin:0 0 16px;padding-top:12px}
+#cQ{font-style:italic;font-weight:500;font-size:1.3rem;line-height:1.35;margin:0 0 6px}
+#cT{font-family:"Noto Serif TC",serif;font-size:.9rem;line-height:1.6;margin:0 0 6px}
+#cA{font-family:"Noto Serif TC",serif;font-size:.8rem;color:var(--sub);margin:0}
+.bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.bar button{background:transparent;color:var(--ink);border:2px solid var(--gold);border-radius:3px;padding:8px 14px;font-family:"Noto Serif TC",serif;font-size:.95rem;cursor:pointer}
+.bar+.bar{margin-top:8px}
+.bar.nav #close{flex:1}
+.bar.audio button{flex:1;background:var(--wine);color:var(--paper);border-color:var(--wine)}
+.foot{height:30px;margin-top:22px;background:radial-gradient(circle,#fff3c4 0 3px,#ffd24a 4px,transparent 7px) center/36px 100% repeat-x;filter:drop-shadow(0 0 8px #ffb830)}
+body::before,body::after{content:"";position:fixed;top:0;bottom:0;width:var(--cw);z-index:10;pointer-events:none;animation:open 1.8s .3s cubic-bezier(.65,0,.25,1) both}
+body::before{left:0;background:repeating-linear-gradient(90deg,#3a0810 0,#7a1626 12px,#5a0f1c 24px,#3a0810 34px);border-right:3px solid #e0b95a;box-shadow:10px 0 24px rgba(0,0,0,.6)}
+body::after{right:0;background:repeating-linear-gradient(270deg,#3a0810 0,#7a1626 12px,#5a0f1c 24px,#3a0810 34px);border-left:3px solid #e0b95a;box-shadow:-10px 0 24px rgba(0,0,0,.6)}
+@keyframes open{from{width:50vw}to{width:var(--cw)}}
+@media (prefers-reduced-motion:reduce){button.tile{transition:none}body::before,body::after{animation:none}}
+@media (max-width:720px){.layout.open{grid-template-columns:1fr}#ov{order:-1}.layout{padding:10px}.card{padding:10px;max-height:52vh}#cL{font-size:2.4rem}#cE{max-width:150px;margin:2px auto}#cW{font-size:1.7rem}#cS{margin:4px 0 8px;font-size:.85rem}.quote{margin-bottom:10px;padding-top:8px}#cQ{font-size:1.05rem}#cT{font-size:.8rem}#cA{font-size:.72rem}.bar button{padding:6px 10px;font-size:.85rem}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>莎翁字母表</h1>
+<p class="sub">The Bard’s Alphabet</p>
+<p class="hint">點一個字母,翻開一張莎士比亞字卡。</p>
+</header>
+<div class="layout" id="lay">
+<div id="grid"></div>
+<div id="ov" hidden>
+<div class="card" role="region" aria-label="字卡">
+<div id="cL"></div>
+<img id="cE" width="300" height="225" alt="">
+<div id="cW"></div>
+<div id="cS"></div>
+<div class="quote">
+<p id="cQ"></p>
+<p id="cT"></p>
+<p id="cA"></p>
+</div>
+<div class="bar nav">
+<button type="button" id="prev" aria-label="上一個">◀</button>
+<button type="button" id="close">關閉</button>
+<button type="button" id="next" aria-label="下一個">▶</button>
+</div>
+<div class="bar audio">
+<button type="button" id="replay">🔊 聽單字</button>
+<button type="button" id="readq">🎭 聽金句</button>
+</div>
+</div>
+</div>
+</div>
+<div class="foot" aria-hidden="true"></div>
+</main>
+<script>
+var words=["Assassination", "Bodkin", "Coward", "Dagger", "Entreat", "Fardel", "Guilt", "Hurlyburly", "Inauspicious", "Jocund", "Knell", "Lust", "Mewling", "Negotiate", "Orisons", "Prithee", "Quintessence", "Rue", "Surfeit", "Trammel", "Usurp", "Vaulting", "Wanton", "Xanthippe", "Yeoman", "Zenith"];
+var note=["暗殺,《馬克白》中馬克白盤算殺害國王時用的詞", "短劍、錐子,《哈姆雷特》中一根小短劍就能了結生命", "懦夫,出自《凱撒大帝》", "匕首,出自《馬克白》", "懇求,出自《第十二夜》", "包袱、重擔,出自《哈姆雷特》", "罪惡感、罪,出自《馬克白》", "喧鬧、混亂,《馬克白》女巫開場的詞", "不吉利的,出自《羅密歐與茱麗葉》", "愉快的、歡樂的,出自《羅密歐與茱麗葉》", "喪鐘,出自《馬克白》", "慾望、情慾,出自《哈姆雷特》", "(嬰兒)哭鬧,出自《皆大歡喜》", "談判、交涉,出自《無事生非》", "禱告,出自《哈姆雷特》", "拜託(古語,意思是「我求你」),出自《馬克白》", "精華、精髓,出自《哈姆雷特》", "芸香,象徵悔恨,出自《哈姆雷特》", "過量、吃到膩,出自《第十二夜》", "束縛、困住,出自《馬克白》", "篡奪、霸佔,出自《哈姆雷特》", "躍起的、過度的,出自《馬克白》", "任性嬉戲的、放縱的,出自《李爾王》", "贊西佩,蘇格拉底的悍妻,《馴悍記》曾提到她", "自耕農;yeoman’s service 指忠實可靠的幫助,出自《哈姆雷特》", "頂點、天頂,出自《暴風雨》"];
+var qt=["If it were done when ’tis done, then ’twere well it were done quickly: if the assassination…", "When he himself might his quietus make with a bare bodkin?", "Cowards die many times before their deaths; the valiant never taste of death but once.", "Is this a dagger which I see before me, the handle toward my hand?", "Pursue him and entreat him to a peace.", "Who would these fardels bear, to grunt and sweat under a weary life?", "If he do bleed, I’ll gild the faces of the grooms withal, for it must seem their guilt.", "When the hurlyburly’s done, when the battle’s lost and won.", "O, here will I set up my everlasting rest, and shake the yoke of inauspicious stars from this world-wearied flesh.", "Night’s candles are burnt out, and jocund day stands tiptoe on the misty mountain tops.", "Hear it not, Duncan; for it is a knell that summons thee to heaven or to hell.", "So lust, though to a radiant angel linked, will sate itself in a celestial bed, and prey on garbage.", "At first the infant, mewling and puking in the nurse’s arms.", "Let every eye negotiate for itself, and trust no agent, for beauty is a witch against whose charms faith melteth into blood.", "Nymph, in thy orisons be all my sins remembered.", "Prithee, peace: I dare do all that may become a man; who dares do more is none.", "What a piece of work is a man! … And yet, to me, what is this quintessence of dust?", "There’s rue for you; and here’s some for me: we may call it herb of grace o’ Sundays.", "If music be the food of love, play on; give me excess of it, that, surfeiting, the appetite may sicken, and so die.", "If the assassination could trammel up the consequence, and catch with his surcease success.", "What art thou that usurp’st this time of night, together with that fair and warlike form in which the majesty of buried Denmark did sometimes march?", "I have no spur to prick the sides of my intent, but only vaulting ambition, which o’erleaps itself and falls on the other.", "As flies to wanton boys are we to the gods; they kill us for their sport.", "As curst and shrewd as Socrates’ Xanthippe, or a worse, she moves me not.", "It did me yeoman’s service.", "I find my zenith doth depend upon a most auspicious star."];
+var zh=["如果事情做完就算結束,那最好快點做完;如果這場暗殺……", "他明明可以只用一根小匕首,就為自己了結一切?", "懦夫在死前就已經死過許多次;勇者一生只嘗一次死亡的滋味。", "我眼前的是一把匕首嗎?刀柄正對著我的手。", "追上他,懇請他與我們講和。", "誰願意扛著這些重擔,在疲憊的人生裡呻吟流汗?", "他們若流血,我就用血塗在侍衛的臉上,因為這一定得看起來是他們的罪。", "當喧鬧結束,當戰爭有輸有贏。", "啊,我要在這裡安歇到永遠,從這具厭倦了世界的軀體上,甩開不吉利星辰的枷鎖。", "夜晚的燭火已經燃盡,歡快的白晝踮著腳尖,站在朦朧的山頭。", "別聽,鄧肯;那是一聲喪鐘,召喚你上天堂或下地獄。", "情慾也一樣,即使與光輝的天使結合,也會在天堂的床上自己膩了,轉而去啃食汙穢。", "起初是嬰兒,在奶媽的懷裡哭鬧和吐奶。", "讓每雙眼睛自己去交涉,別信任任何代理人,因為美是個女巫,在她的魅力面前,信義會融化成血。", "仙女啊,在你的禱告中,請記得我的一切罪過。", "拜託,別說了:凡是男人該做的,我都敢做;敢做更多的,就不是人了。", "人是多麼了不起的傑作!……可是對我來說,這塵土的精華又算什麼?", "這是給你的芸香,這是我的:我們可以在星期天叫它「恩典之草」。", "如果音樂是愛情的食糧,就繼續奏下去吧;多給我一些,讓我吃到膩,胃口病倒,然後消失。", "如果這場刺殺能把後果牢牢困住,用他的死換來成功。", "你是什麼東西,竟敢篡奪這夜晚的時辰,還借用那副俊美威武的模樣,就是已故丹麥王曾經行軍時的形象?", "我沒有刺激意圖的馬刺,只有一股過度躍起的野心,它一躍就跳過頭,摔到另一邊去。", "我們之於眾神,就像蒼蠅之於頑皮的男孩;他們殺死我們,只是為了好玩。", "就算她像蘇格拉底的贊西佩一樣又兇又悍,甚至更糟,也動搖不了我。", "它幫了我大忙,盡了忠實的本分。", "我發現我的命運頂點,正取決於一顆極其吉利的星。"];
+var src=["馬克白,《馬克白》第 1 幕第 7 景", "哈姆雷特,《哈姆雷特》第 3 幕第 1 景", "凱撒,《凱撒大帝》第 2 幕第 2 景", "馬克白,《馬克白》第 2 幕第 1 景", "奧西諾公爵,《第十二夜》第 5 幕第 1 景", "哈姆雷特,《哈姆雷特》第 3 幕第 1 景", "馬克白夫人,《馬克白》第 2 幕第 2 景", "女巫們,《馬克白》第 1 幕第 1 景", "羅密歐,《羅密歐與茱麗葉》第 5 幕第 3 景", "羅密歐,《羅密歐與茱麗葉》第 3 幕第 5 景", "馬克白,《馬克白》第 2 幕第 1 景", "老國王的鬼魂,《哈姆雷特》第 1 幕第 5 景", "傑奎斯,《皆大歡喜》第 2 幕第 7 景", "克勞狄奧,《無事生非》第 2 幕第 1 景", "哈姆雷特,《哈姆雷特》第 3 幕第 1 景", "馬克白,《馬克白》第 1 幕第 7 景", "哈姆雷特,《哈姆雷特》第 2 幕第 2 景", "奧菲莉亞,《哈姆雷特》第 4 幕第 5 景", "奧西諾公爵,《第十二夜》第 1 幕第 1 景", "馬克白,《馬克白》第 1 幕第 7 景", "霍拉旭,《哈姆雷特》第 1 幕第 1 景", "馬克白,《馬克白》第 1 幕第 7 景", "葛羅斯特,《李爾王》第 4 幕第 1 景", "彼特魯喬,《馴悍記》第 1 幕第 2 景", "哈姆雷特,《哈姆雷特》第 5 幕第 2 景", "普洛斯彼羅,《暴風雨》第 1 幕第 2 景"];
+var grid=document.getElementById("grid"),ov=document.getElementById("ov"),lay=document.getElementById("lay"),cur=0;
+var player=null;
+function stopAudio(){if(player){player.pause();player=null}}
+function play(kind){
+  stopAudio();
+  player=new Audio("audio/"+String.fromCharCode(65+cur)+"_"+words[cur]+"_"+kind+".mp3");
+  player.play().catch(function(){});
+}
+function say(){play("word")}
+function show(i){
+  cur=(i+26)%26;
+  var L=String.fromCharCode(65+cur);
+  document.getElementById("cL").innerHTML=L+'<span class="lc">'+L.toLowerCase()+'</span>';
+  var im=document.getElementById("cE");
+  im.src="images/"+L+"_"+words[cur]+".jpg";
+  im.alt=words[cur];
+  document.getElementById("cW").textContent=words[cur];
+  document.getElementById("cS").textContent=note[cur];
+  document.getElementById("cQ").textContent="“"+qt[cur]+"”";
+  document.getElementById("cT").textContent=zh[cur];
+  document.getElementById("cA").textContent="—— "+src[cur];
+  ov.hidden=false;
+  lay.classList.add("open");
+  Array.prototype.forEach.call(grid.children,function(t,j){t.classList.toggle("sel",j===cur)});
+  stopAudio();
+}
+function hide(){
+  ov.hidden=true;
+  lay.classList.remove("open");
+  Array.prototype.forEach.call(grid.children,function(t){t.classList.remove("sel")});
+  stopAudio();
+}
+document.getElementById("prev").addEventListener("click",function(){show(cur-1)});
+document.getElementById("next").addEventListener("click",function(){show(cur+1)});
+document.getElementById("replay").addEventListener("click",say);
+document.getElementById("readq").addEventListener("click",function(){play("quote")});
+document.getElementById("close").addEventListener("click",hide);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")hide()});
+words.forEach(function(w,i){
+  var L=String.fromCharCode(65+i);
+  var b=document.createElement("button");
+  b.className="tile";b.type="button";
+  b.setAttribute("aria-label","字母 "+L);
+  b.innerHTML='<span class="big">'+L+'<span class="lc">'+L.toLowerCase()+'</span></span>';
+  b.addEventListener("click",function(){show(i)});
+  grid.appendChild(b);
+});
+</script>
+</body>
+</html>
